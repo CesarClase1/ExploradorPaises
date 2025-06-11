@@ -1,0 +1,438 @@
+    :root {
+      --primary-color: #4361ee;
+      --secondary-color: #3f37c9;
+      --accent-color: #4895ef;
+      --dark-color: #2b2d42;
+      --light-color: #f8f9fa;
+      --success-color: #4cc9f0;
+      --warning-color: #f8961e;
+      --danger-color: #f72585;
+      --border-radius: 12px;
+      --box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 100px); /* Ajusta según altura del header */
+  overflow: hidden;
+}
+
+#map-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+    
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f5f7fa;
+      color: var(--dark-color);
+      line-height: 1.6;
+      overflow: hidden;
+      zoom: 1;
+    }
+    
+    /* Header */
+    header {
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      color: white;
+      padding: 1.5rem 2rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      z-index: 100;
+      height: 80px;
+    }
+    
+    h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 1.8rem;
+      margin: 0;
+      letter-spacing: 0.5px;
+    }
+    
+    .header-controls {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    .user-info, .game-link {
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 0.5rem 1.2rem;
+      border-radius: 50px;
+      font-weight: 500;
+      color: var(--dark-color);
+      display: flex;
+      align-items: center;
+      box-shadow: var(--box-shadow);
+      transition: var(--transition);
+      text-decoration: none;
+      cursor: pointer;
+    }
+    
+    .user-info:hover, .game-link:hover {
+      transform: translateY(-2px);
+      background-color: rgba(255, 255, 255, 1);
+    }
+    
+    .user-info::before {
+      content: "👤";
+      margin-right: 8px;
+      font-size: 1.1rem;
+    }
+    
+    .game-link::before {
+      margin-right: 8px;
+      font-size: 1.1rem;
+    }
+    
+    /* Contenedor principal */
+    .main-container {
+      width: 100%;
+      height: calc(100vh - 80px);
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+    
+    /* Mapa */
+#map-container {
+  width: 100%;
+  height: 90vh; /* O ajusta al gusto: 100vh si quieres pantalla completa */
+  position: relative;
+  overflow: hidden;
+}
+
+    
+#world-map {
+  width: 120%;
+  height: auto;
+  display: block;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  left: 0;
+}
+
+    
+    /* Controles del mapa */
+    #map-controls {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      z-index: 10;
+    }
+    
+    #map-controls button {
+      width: 3rem;
+      height: 3rem;
+      font-size: 1.5rem;
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    
+    #map-controls button:hover {
+      background-color: var(--secondary-color);
+      transform: scale(1.1);
+    }
+    
+    /* Modales - NUEVOS ESTILOS */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100vw;
+      height: 100vh;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.85);
+    }
+    
+    .modal-content {
+      background-color: transparent;
+      margin: auto;
+      padding: 2rem;
+      width: 90%;
+      max-width: 900px;
+      color: white;
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+      animation: fadeIn 0.3s;
+    }
+    
+    .modal-content .tabs {
+      justify-content: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .modal-content .tab-button {
+      color: rgba(255, 255, 255, 0.7);
+    }
+    
+    .modal-content .tab-button.active {
+      color: white;
+    }
+    
+    .modal-content .tab-button:hover:not(.active) {
+      color: white;
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+    
+    .modal-content .tab-content {
+      padding: 1.5rem 0;
+      text-align: center;
+      color: white;
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+
+    .user-info-container {
+  position: relative;
+  display: inline-block;
+}
+
+.user-dropdown {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.user-info {
+  padding: 5px 10px;
+  background-color: #f1f1f1;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  min-width: 150px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  z-index: 1000;
+}
+
+.dropdown-menu button {
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+.dropdown-menu button:hover {
+  background-color: #f8d7da;
+  color: #c0392b;
+}
+
+.user-dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+
+    
+    .close-btn {
+      position: absolute;
+      top: 1rem;
+      right: 1.5rem;
+      font-size: 2rem;
+      color: rgba(255, 255, 255, 0.7);
+      background: none;
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    
+    .close-btn:hover {
+      color: var(--danger-color);
+      transform: rotate(90deg);
+    }
+    
+    /* Pestañas */
+    .tabs {
+      display: flex;
+      border-bottom: 2px solid #eee;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
+    
+    .tab-button {
+      padding: 0.8rem 1.5rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      color: #666;
+      position: relative;
+      transition: var(--transition);
+    }
+    
+    .tab-button.active {
+      color: var(--primary-color);
+    }
+    
+    .tab-button.active::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background-color: var(--primary-color);
+    }
+    
+    .tab-button:hover:not(.active) {
+      color: var(--dark-color);
+      background-color: #f5f5f5;
+    }
+    
+    .tab-content {
+      display: none;
+      padding: 0.5rem;
+      animation: fadeIn 0.5s;
+    }
+    
+    .tab-content.active {
+      display: block;
+    }
+    
+    /* Modal de carga */
+    .loading-modal {
+      display: none;
+      position: fixed;
+      z-index: 1001;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(3px);
+    }
+    
+    .loading-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      background-color: white;
+      padding: 2rem 3rem;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+    }
+    
+    .loading-flag {
+      width: 60px;
+      height: 40px;
+      margin-bottom: 1rem;
+      object-fit: cover;
+      border: 1px solid #eee;
+    }
+    
+    /* Animaciones */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+        padding: 1rem;
+        height: auto;
+      }
+      
+      h1 {
+        font-size: 1.5rem;
+      }
+      
+      .header-controls {
+        width: 100%;
+        justify-content: space-between;
+      }
+      
+      .main-container {
+        height: calc(100vh - 120px);
+      }
+      
+      .modal-content {
+        width: 95%;
+        padding: 1rem;
+      }
+      
+      .modal-content .tab-content {
+        padding: 1rem 0;
+        font-size: 1rem;
+      }
+      
+      .tabs {
+        overflow-x: auto;
+        white-space: nowrap;
+        padding-bottom: 0.5rem;
+      }
+      
+      #map-controls {
+        bottom: 1rem;
+        left: 1rem;
+      }
+      
+      #map-controls button {
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: 1.2rem;
+      }
+      
+      .user-info, .game-link {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+      }
+    }

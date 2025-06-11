@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Foro de Comentarios</title>
+    <link rel="stylesheet" href="../styles/style-foro.css">
+</head>
+<body>
+  <button id="back-button" onclick="window.location.href='index.html'">← Volver al Inicio</button>
+  <h1>Foro de Comentarios</h1>
+
+  <div id="login-msg"></div>
+
+  <form id="comment-form" style="display:none;" enctype="multipart/form-data">
+    <textarea id="comment-text" placeholder="Escribe tu comentario aquí..." required></textarea>
+    <input type="file" id="comment-image" accept=".jpg,.jpeg" />
+    <button type="submit">Enviar Comentario</button>
+  </form>
+
+  <div id="filter-bar"></div>
+  <div id="comments"></div>
+
+  <script src="../scripts/foro.js"></script>
+
+</body>
+</html>

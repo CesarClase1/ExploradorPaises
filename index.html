@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mapa Mundi Interactivo</title>
+    <link rel="stylesheet" href="../styles/style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@400;600;700&display=swap">
+  <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+
+</head>
+<body>
+
+  <header>
+    <h1>Mapa del Mundo Interactivo</h1>
+    <div class="header-controls">
+      <a href="foro.html" class="game-link">✍ Foro</a>
+      <a href="juego-capitales.html" class="game-link"> 🧠 Juego de Capitales</a>
+      <a href="juego-idiomas.html" class="game-link"> 🉐 Juego de Idiomas</a>
+      <a href="juego-banderas.html" class="game-link"> 🚩 Juego de Banderas</a>
+<div class="user-dropdown">
+  <div class="user-info" id="username-display">Invitado ▾</div>
+  <div class="dropdown-menu" id="user-menu">
+    <button id="logout-button">Cerrar sesión</button>
+  </div>
+</div>
+
+
+    </div>
+  </header>
+
+  <div class="main-container">
+    <div id="map-container">
+      <object type="image/svg+xml" data="../assets/world.svg" id="world-map"></object>
+    
+      <div id="map-controls">
+        <button id="zoomInBtn" title="Zoom In">+</button>
+        <button id="zoomOutBtn" title="Zoom Out">-</button>
+      </div>
+    </div>
+  </div>
+  
+  <div id="loadingModal" class="loading-modal">
+    <div class="loading-content">
+      <img id="loadingFlag" src="" alt="Cargando..." class="loading-flag">
+      <p>Cargando información...</p>
+      <div class="progress-bar">
+        <div class="progress"></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="info-modal" class="modal">
+    <div class="modal-content">
+      <div class="tabs">
+        <button class="tab-button active" data-tab="general">General</button>
+        <button class="tab-button" data-tab="geography">Geografía</button>
+        <button class="tab-button" data-tab="economy">Economía</button>
+        <button class="tab-button" data-tab="language">Idiomas</button>
+        <button class="tab-button" data-tab="culture">Curiosidades</button>
+      </div>
+      
+      <div class="tab-content active" id="general-content"></div>
+      <div class="tab-content" id="geography-content"></div>
+      <div class="tab-content" id="history-content"></div>
+      <div class="tab-content" id="economy-content"></div>
+      <div class="tab-content" id="language-content"></div>
+      <div class="tab-content" id="culture-content"></div>
+      
+      <button id="close-info" class="close-btn" title="Cerrar">&times;</button>
+    </div>
+  </div>
+
+  <script>
+    console.log('localStorage currentUser:', localStorage.getItem('currentUser'));
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+      const usernameDisplay = document.getElementById('username-display');
+      
+if (currentUser && currentUser.nombre) {
+  usernameDisplay.textContent = currentUser.nombre;
+} else {
+  usernameDisplay.textContent = 'Invitado';
+}
+
+    });
+    
+    document.querySelectorAll('.tab-button').forEach(button => {
+      button.addEventListener('click', () => {
+        const tabId = button.getAttribute('data-tab');
+        
+        document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+        document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+        
+        button.classList.add('active');
+        document.getElementById(`${tabId}-content`).classList.add('active');
+      });
+    });
+    
+    document.getElementById('close-info').addEventListener('click', () => {
+      document.getElementById('info-modal').style.display = 'none';
+    });
+
+document.getElementById('logout-button').addEventListener('click', () => {
+  localStorage.removeItem('currentUser');
+  window.location.href = 'login.html';
+});
+
+
+    setTimeout(openModal, 1000);
+  </script>
+
+  <script src="../scripts/app.js"></script>
+</body>
+</html>

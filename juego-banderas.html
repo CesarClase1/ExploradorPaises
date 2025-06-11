@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adivina la Bandera</title>
+    <link rel="stylesheet" href="../styles/style-banderas.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1>🇺🇳 Adivina la Bandera 🇺🇳</h1>
+        <div class="difficulty-selector">
+            <label for="difficulty">Dificultad:</label>
+            <select id="difficulty">
+                <option value="easy">Fácil (10 países)</option>
+                <option value="medium">Media (25 países)</option>
+                <option value="hard">Difícil (50 países)</option>
+                <option value="world">Todo el mundo (250 países)</option>
+            </select>
+        </div>
+        <div class="score-container">
+            Puntuación: <span id="score">0</span> / <span id="total">0</span>
+        </div>
+        <div id="flag-container">
+            <img id="flag-image" src="" alt="Bandera a adivinar">
+        </div>
+        <div class="feedback" id="feedback"></div>
+        <div class="options-container" id="options-container">
+        </div>
+        <div class="action-buttons">
+            <button id="next-btn" style="display: none;">Siguiente Bandera →</button>
+            <button id="end-btn">Finalizar Partida</button>
+        </div>
+    </div>
+
+    <div class="history-container">
+        <h2>Partidas finalizadas:</h2>
+        <div id="history-entries"></div>
+    </div>
+  <script src="../scripts/banderas.js"></script>
+
+</body>
+</html>

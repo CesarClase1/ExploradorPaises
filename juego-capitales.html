@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego de Capitales de Europa</title>
+    <link rel="stylesheet" href="../styles/style-capitales.css">
+
+</head>
+<body>
+    <div id="user-info">
+        <span id="username-display">Usuario no identificado</span>
+        <button id="logout-btn">Cerrar sesión</button>
+    </div>
+    
+    <h1>Juego de Capitales de Europa</h1>
+    
+    <div id="controls">
+        <button id="start-btn">Comenzar Juego</button>
+        <button id="next-btn" style="display: none;">Siguiente Capital</button>
+        <button id="end-game-btn" style="display: none;">Terminar Partida</button>
+    </div>
+    
+    <div id="game-info">
+        <h2 id="question">Haz clic en "Comenzar Juego" para empezar</h2>
+        <div id="feedback"></div>
+        <div id="tolerance-info">Tienes que hacer clic cerca de la ubicación correcta de la capital</div>
+        <div id="score">Aciertos: 0 | Fallos: 0</div>
+    </div>
+    
+    <div id="map-container">
+        <img id="europe-map" src="../assets/3142.webp" alt="Mapa de Europa">
+    </div>
+    
+    <div id="history-section">
+        <h2>Historial de Partidas</h2>
+        <div id="history-container"></div>
+        <button id="clear-history-btn" style="margin-top: 15px;">Limpiar Historial</button>
+    </div>
+    
+    <div id="save-game-modal" class="modal">
+        <div class="modal-content">
+            <h3>Partida Terminada</h3>
+            <p id="modal-result-text"></p>
+            <div class="modal-buttons">
+                <button id="save-game-btn">Guardar Partida</button>
+                <button id="cancel-save-btn">Descartar</button>
+            </div>
+        </div>
+    </div>
+      <script src="../scripts/capitales.js"></script>
+
+</body>
+</html>

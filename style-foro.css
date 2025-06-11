@@ -1,0 +1,125 @@
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      padding: 2rem;
+      max-width: 700px;
+      margin: auto;
+    }
+    h1 {
+      text-align: center;
+    }
+    #filter-bar {
+      margin: 1rem 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+    }
+    .hashtag-btn {
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      padding: 0.3rem 0.8rem;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+    .hashtag-btn:hover {
+      background: #0056b3;
+    }
+    #clear-filter {
+      background: #dc3545;
+      margin-left: 1rem;
+    }
+    #comments {
+      margin-top: 2rem;
+      border-top: 1px solid #ccc;
+      padding-top: 1rem;
+    }
+    .comment {
+      border-bottom: 1px solid #ddd;
+      padding: 1rem 0;
+      position: relative;
+    }
+    .comment-user {
+      font-weight: bold;
+    }
+    .comment-date {
+      color: #888;
+      font-size: 0.8rem;
+      margin-left: 0.5rem;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      margin-top: 1rem;
+    }
+    textarea {
+      resize: vertical;
+      min-height: 80px;
+      padding: 0.5rem;
+      font-size: 1rem;
+    }
+    input[type="file"] {
+      margin-top: 0.5rem;
+    }
+    button {
+      align-self: flex-start;
+      margin-top: 0.5rem;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 6px;
+      background: #007bff;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    #login-msg {
+      color: red;
+      margin-top: 1rem;
+      text-align: center;
+    }
+    #back-button {
+      margin-bottom: 1rem;
+      background: #28a745;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      color: white;
+      cursor: pointer;
+    }
+    .delete-btn {
+      position: absolute;
+      right: 0;
+      top: 1rem;
+      background: #dc3545;
+      color: white;
+      border: none;
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.8rem;
+    }
+    .delete-btn:hover {
+      background: #a71d2a;
+    }
+    img {
+      max-width: 100%;
+      margin-top: 0.5rem;
+      border-radius: 4px;
+    }
+    .hashtags-in-comment {
+      margin-top: 0.5rem;
+    }
+    .hashtag-link {
+      color: #007bff;
+      cursor: pointer;
+      margin-right: 0.4rem;
+      user-select: none;
+    }
+    .hashtag-link:hover {
+      text-decoration: underline;
+    }
